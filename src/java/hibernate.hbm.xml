@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="xxxt.bilogin.db.entities.Kullanici" table="KULLANICI">
+        <id name="id" type="integer">
+            <column name="ID" precision="20" scale="0" />
+            <generator class="sequence-identity" >
+        <param name="sequence">APPS.KULLANICI_SEQ</param>
+    </generator>
+        </id>
+        <property name="kullaniciadi" type="string">
+            <column name="KULLANICIADI" />
+        </property>
+        <property name="ad" type="string">
+            <column name="AD" />
+        </property>
+        <property name="soyad" type="string">
+            <column name="SOYAD" />
+        </property>
+        <property name="adsoyad" type="string">
+            <column name="ADSOYAD" />
+        </property>
+        <property name="sifre" type="string">
+            <column name="SIFRE" />
+        </property>
+        <property name="sicilno" type="string">
+            <column name="SICILNO" />
+        </property>
+        <property name="tcno" type="string">
+            <column name="TCNO" />
+        </property>
+        <property name="organizasyonId" type="string">
+            <column name="ORGANIZASYON_ID" length="100" />
+        </property>
+         <property name="organizationId" type="string">
+            <column name="ORGANIZATION_ID" length="100" />
+        </property>
+        <property name="kisiid" type="big_decimal">
+            <column name="KISIID" precision="22" scale="0" />
+        </property>
+        <property name="eposta" type="string">
+            <column name="EPOSTA" />
+        </property>       
+        <property name="isletmetipi" type="string">
+            <column name="ISLETMETIPI" />
+        </property>
+        <property name="kaydiyapankullanici" type="string">
+            <column name="KAYDIYAPANKULLANICI" length="50" />
+        </property>
+        <property name="kaydiguncelleyenkullanici" type="string">
+            <column name="KAYDIGUNCELLEYENKULLANICI" />
+        </property>
+        <property name="isletmetipiId" type="big_decimal">
+            <column name="ISLETMETIPI_ID" scale="0" />
+        </property>
+        <property name="isletmeadi" type="string">
+            <column name="ISLETMEADI" />
+        </property>
+        <property name="calistigibirim" type="string">
+            <column name="CALISTIGIBIRIM" />
+        </property>        
+        <property name="aktif" type="java.lang.Boolean">
+            <column name="AKTIF" precision="1" scale="0" />
+        </property>
+        <property name="yerlesimkod" type="string">
+            <column name="YERLESIMKOD" length="50" />
+        </property>
+        <property name="orgKod" type="string">
+            <column name="ORG_KOD" length="150" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" />
+        </property>       
+        <property name="kayiteklemetarihi" type="date">
+            <column name="KAYITEKLEMETARIHI" length="7" />
+        </property>
+        <property name="kayitguncellemetarihi" type="date">
+            <column name="KAYITGUNCELLEMETARIHI" length="7" />
+        </property>
+        <property name="personelTip" type="big_decimal">
+            <column name="PERSONEL_TIP" precision="22" scale="0" />
+        </property>
+        <property name="isyazilim" type="java.lang.Boolean">
+            <column name="ISYAZILIM" precision="1" scale="0" />
+        </property>
+        <property name="unvan" type="string">
+            <column name="UNVAN" />
+        </property>
+        <property name="sifreDegistir" type="java.lang.Boolean">
+            <column name="SIFREDEGISTIR" precision="1" scale="0" />
+        </property>
+        
+    </class>
+    <class name="xxxt.bilogin.db.entities.User" table="BI_KULLANICI_XT">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="20" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="kullaniciadi" type="string">
+            <column name="KULLANICIADI" />
+        </property>
+        <property name="sifre" type="string">
+            <column name="SIFRE" />
+        </property>
+        <property name="kaydiyapankullanici" type="string">
+            <column name="KAYDIYAPANKULLANICI" length="50" />
+        </property>
+        <property name="kayiteklemetarihi" type="date">
+            <column name="KAYITEKLEMETARIHI" length="7" />
+        </property>
+        <property name="kaydiguncelleyenkullanici" type="string">
+            <column name="KAYDIGUNCELLEYENKULLANICI" />
+        </property>
+        <property name="kayitguncellemetarihi" type="date">
+            <column name="KAYITGUNCELLEMETARIHI" length="7" />
+        </property>
+        <property name="kisiid" type="big_decimal">
+            <column name="KISIID" precision="22" scale="0" />
+        </property>
+    </class>
+        <class name="xxxt.bilogin.db.entities.IsletmeAdmin" schema="BI_LOGIN" table="BI_KULLANICI_ISLETME">
+        <id column="ID" name="id" type="big_decimal">
+            <generator class="assigned"/>
+        </id>
+        <property name="kisiid" column="KISIID" type="big_decimal" />
+        <property name="ad" column="AD" type="string"/>
+        <property name="soyad" column="SOYAD" type="string"/>     
+        <property name="orgId" column="ORG_ID" type="string"/>
+        <property name="orgName" column="ORG_NAME" type="string"/> 
+        <property name="creation_date" column="CREATION_DATE" type="date"/>     
+        <property name="last_update_date" column="LAST_UPDATE_DATE" type="date"/>  
+  
+    </class> 
+        
+    
+    <class name="xxxt.bilogin.db.entities.UserLog" table="BI_KULLANICI_SIFRE_LOG">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="20" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="kullaniciid" type="string">
+            <column name="KULLANICIID" />
+        </property>
+        <property name="kullaniciadi" type="string">
+            <column name="KULLANICIADI" />
+        </property>
+        <property name="sifre" type="string">
+            <column name="SIFRE" />
+        </property>
+        <property name="statu" type="string">
+            <column name="STATU" />
+        </property>
+        <property name="kaydiyapankullanici" type="string">
+            <column name="KAYDIYAPANKULLANICI" />
+        </property>
+        <property name="kayiteklemetarihi" type="date">
+            <column name="KAYITEKLEMETARIHI" />
+        </property>
+        <property name="kaydiguncelleyenkullanici" type="string">
+            <column name="KAYDIGUNCELLEYENKULLANICI" />
+        </property>
+        <property name="kayitguncellemetarihi" type="date">
+            <column name="KAYITGUNCELLEMETARIHI" />
+        </property>
+        <property name="kayitsilinmetarihi" type="date">
+            <column name="KAYITSILINMETARIHI" />
+        </property>
+    </class>
+        
+        
+    <class name="xxxt.bilogin.db.entities.ErpOrganizasyon" schema="KDS" table="DIM_ERP_ORGANIZASYON_DWH_XT">
+        <id column="ROW_ID" name="id" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+        <property name="locationId" column="LOCATION_ID" type="java.lang.Long" />
+        <property name="locationCode" column="LOCATION_CODE" type="string"/>
+        <property name="description" column="DESCRIPTION" type="string"/>       
+        <property name="townOrCity" column="TOWN_OR_CITY" type="string"/>
+        <property name="organizationId" column="ORGANIZATION_ID" type="java.lang.Long"/>
+        <property name="name" column="NAME" type="string"/>
+        <property name="organizationCode" column="ORGANIZATION_CODE" type="string"/>
+        <property name="glYerlesim" column="GL_YERLESIM" type="string"/>
+        
+    </class> 
+    
+    <class name="xxxt.bilogin.db.entities.KullaniciDetay" schema="BI_LOGIN" table="KULLANICI_DETAY_MV">
+        <id column="KISIID" name="kisiId" type="big_decimal">
+            <generator class="assigned"/>
+        </id>
+        <property name="tckimlikno" column="TCKIMLIKNO" type="string" />
+        <property name="ad" column="AD" type="string"/>
+        <property name="soyad" column="SOYAD" type="string"/>       
+        <property name="yerlesimkod" column="YERLESIMKOD" type="string"/>
+        <property name="organizationId" column="ORGANIZATION_ID" type="string"/>
+        <property name="name" column="NAME" type="string"/>
+        <property name="birim" column="BIRIM" type="string"/>
+        <property name="orgkod" column="ORG_KOD" type="string"/>
+        <property name="tasramerkezId" column="TASRAMERKEZ_ID" type="java.lang.Long" />
+        <property name="tasramerkez" column="TASRAMERKEZ" type="string"/>
+        <property name="unvani" column="UNVANI" type="string"/>
+        <property name="personeltipId" column="PERSONELTIPID" type="big_decimal" />
+        <property name="sicilno" column="SICILNO" type="string" />    
+    </class> 
+    <class name="xxxt.bilogin.db.entities.Rolk" schema="BI_LOGIN" table="ROL">
+        <id name="id" type="big_decimal">
+            <column name="ID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="roladi" type="string">
+            <column name="ROLADI" />
+        </property>
+        <property name="aciklama" type="string">
+            <column name="ACIKLAMA" />
+        </property>
+        <property name="ekleyenkisi" type="string">
+            <column name="EKLEYENKISI" />
+        </property>
+        <property name="guncelleyenkisi" type="string">
+            <column name="GUNCELLEYENKISI" />
+        </property>
+        <property name="aktifmi" type="big_decimal">
+            <column name="AKTIFMI" scale="0" />
+        </property>
+        <property name="eklemetarihi" type="date">
+            <column name="EKLEMETARIHI" length="7" />
+        </property>
+        <property name="guncellemetarihi" type="date">
+            <column name="GUNCELLEMETARIHI" length="7" />
+        </property>
+    </class>
+    
+    
+    <class name="xxxt.bilogin.db.entities.Parametre" table="PARAMETRE_V" schema="BI_LOGIN">
+        <id name="id" type="big_decimal">
+            <column name="ID"  />
+            <generator class="native"/>
+        </id>
+        <property name="deger" type="string">
+            <column name="DEGER" />
+        </property>
+        <property name="pmetre" type="string">
+            <column name="P_METRE" />
+        </property>
+        
+    </class>  
+      
+      
+    <class name="xxxt.bilogin.db.entities.IsletmeTipi" schema="BI_LOGIN" table="ISLETMETIPI">
+        <id name="id" type="big_decimal">
+            <column name="ID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="isletmetipi" type="string">
+            <column name="ISLETMETIPI" />
+        </property>
+        
+    </class>
+	
+		
+	
+    <class name="xxxt.bilogin.db.entities.Rol" table="ROL" schema="BI_LOGIN">
+        <id name="id" type="integer">
+            <column name="ID" precision="20" scale="0" />
+            <generator class="sequence-identity" >
+                <param name="sequence">APPS.ROL_SEQ</param>
+            </generator>
+        </id> 
+        <property name="roladi" type="string">
+            <column name="ROLADI" />
+        </property>
+        <property name="aciklama" type="string">
+            <column name="ACIKLAMA" />
+        </property>
+        <property name="ekleyenkisi" type="string">
+            <column name="EKLEYENKISI" />
+        </property>
+        <property name="guncelleyenkisi" type="string">
+            <column name="GUNCELLEYENKISI" />
+        </property>
+        <property name="aktifmi" type="java.lang.Boolean">
+            <column name="AKTIFMI" scale="0" />
+        </property>
+        <property name="eklemetarihi" type="date">
+            <column name="EKLEMETARIHI" length="7" />
+        </property>
+        <property name="guncellemetarihi" type="date">
+            <column name="GUNCELLEMETARIHI" length="7" />
+        </property>
+    </class>
+        
+    <class name="xxxt.bilogin.db.entities.RolAltMenu" table="ROL_ALTMENU_XT" schema="BI_LOGIN">
+        <id column="ROW_ID" name="id" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+        <property name="izinVerilenRollerId" type="big_decimal">
+            <column name="IZINVERILENROLLER_ID" scale="0" />
+        </property>
+        <property name="rolAdi" type="string">
+            <column name="ROLADI" />
+        </property>
+        <property name="altMenulerId" type="big_decimal">
+            <column name="ALTMENULER_ID" scale="0" />
+        </property>
+        <property name="altMenuAdi" type="string">
+            <column name="ALTMENUADI" />
+        </property>
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.RolAltMenuT" table="ROL_ALTMENU" schema="BI_LOGIN">
+        <id name="id" type="integer">
+            <column name="ID" scale="0" />            
+            <generator class="sequence-identity" >
+                <param name="sequence">APPS.ROL_ALTMENU_SEQ</param>
+            </generator>
+        </id>
+        <property name="izinVerilenRollerId" type="big_decimal">
+            <column name="IZINVERILENROLLER_ID" scale="0" />
+        </property>
+        <property name="altMenulerId" type="big_decimal">
+            <column name="ALTMENULER_ID" scale="0" />
+        </property>
+    </class>
+    
+    
+    <class name="xxxt.bilogin.db.entities.Altmenu" table="ALTMENU">
+        <id name="id" type="big_decimal">
+            <column name="ID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="altmenuadi" type="string">
+            <column name="ALTMENUADI" />
+        </property>
+        <property name="anamenuId" type="big_decimal">
+            <column name="ANAMENU_ID" scale="0" />
+        </property>
+        <property name="iconId" type="big_decimal">
+            <column name="ICON_ID" scale="0" />
+        </property>
+        <property name="url" type="string">
+            <column name="URL" />
+        </property>
+    </class>
+    
+      <class name="xxxt.bilogin.db.entities.RolErpResponsibility" table="ROL_ERPRESPONSIBILITY" schema="BI_LOGIN">
+        <id name="id" type="integer">
+            <column name="ID" scale="0" />            
+            <generator class="sequence-identity" >
+                <param name="sequence">APPS.ROL_ERPRESPONSIBILITY_SEQ</param>
+            </generator>
+        </id>
+        <property name="rolid" type="big_decimal">
+            <column name="ROL_ID" scale="0" />
+        </property>
+        <property name="erpsorumlulularid" type="big_decimal">
+            <column name="ERPSORUMLULULAR_ID" scale="0" />
+        </property>
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.ErpResponsibility" table="ERPRESPONSIBILITY" schema="BI_LOGIN">
+        <id name="id" type="big_decimal">
+            <column name="ID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="responsibilityname" type="string">
+            <column name="REPONSIBILITYNAME" />
+        </property>
+    </class>
+        
+    <class name="xxxt.bilogin.db.entities.RolKullanici" table="ROL_KULLANICI" schema="BI_LOGIN">
+        <id name="id" type="integer">
+            <column name="ID" scale="0" />            
+            <generator class="sequence-identity" >
+                <param name="sequence">APPS.ROL_KULLANICI_SEQ</param>
+            </generator>
+        </id>
+        <property name="rol" type="big_decimal">
+            <column name="ROL" />
+        </property>
+        <property name="kullanici" type="big_decimal">
+            <column name="KULLANICI" />
+        </property>
+        <property name="ekleyenkisi" type="string">
+            <column name="EKLEYENKISI" />
+        </property>        
+        <property name="eklemetarihi" type="date">
+            <column name="EKLEMETARIHI" length="7" />
+        </property>
+        <property name="aktifmi" type="big_decimal">
+            <column name="AKTIFMI" scale="0" />
+        </property>       
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.PersonelTip" table="PERSONELTIP" schema="BORDRO">
+        <id name="id" type="big_decimal">
+            <column name="PERSONELTIPID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="tanim" type="string">
+            <column name="TANIM" />
+        </property>
+        <property name="ekleyenid" type="big_decimal">
+            <column name="EKLEYENID" />
+        </property>
+        <property name="guncelleyenid" type="big_decimal">
+            <column name="GUNCELLEYENID" />
+        </property>
+        <property name="eklemetarihi" type="date">
+            <column name="EKLEMETARIHI" length="7" />
+        </property>
+        <property name="guncellemetarihi" type="date">
+            <column name="GUNCELLEMETARIHI" length="7" />
+        </property>
+        <property name="aktif" type="big_decimal">
+            <column name="AKTIF" scale="0" />
+        </property>       
+    </class>
+    
+    
+    <class name="xxxt.bilogin.db.entities.KisiResim" table="KISIRESIM" schema="BI_LOGIN">
+        <id name="id" type="long">
+            <column name="KISIRESIMID" scale="0" />            
+            <generator class="sequence-identity" >
+                <param name="sequence">APPS.KISIRESIM_SEQ</param>
+            </generator>
+        </id>
+        <property name="kisiid" type="big_decimal">
+            <column name="KISIID" />
+        </property>
+        <property name="resim" type="blob">
+            <column name="KUTUK" />
+        </property>
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.KisiResimPromise" table="KISIRESIM" schema="BORDRO">
+        <id name="id" type="long">
+            <column name="KISIRESIMID"/>            
+            <generator class="native"/>
+        </id>
+        <property name="kisiid" type="big_decimal">
+            <column name="KISIID" />
+        </property>
+        <property name="resim" type="blob">
+            <column name="KUTUK" />
+        </property>
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.ParametreT" table="PARAMETRE" schema="BI_LOGIN">
+        <id name="id" type="big_decimal">
+            <column name="ID"  />
+            <generator class="native"/>
+        </id>
+        <property name="deger" type="string">
+            <column name="DEGER" />
+        </property>
+        <property name="pmetre" type="string">
+            <column name="P_METRE" />
+        </property>
+        
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.Isletme" schema="BI_LOGIN" table="ISLETME_V_TBL">
+        <id column="ISLETME_ID" name="isletmeId" type="big_decimal">
+            <generator class="assigned"/>
+        </id>
+        <property name="isletmeAdi" column="ISLETME_ADI" type="string" />
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.IsletmeDetay" schema="BI_LOGIN" table="ISLETME_DETAY">
+        <id column="ISLETME_ID" name="isletmeId" type="big_decimal">
+            <generator class="native"/>
+        </id>
+        <property name="isletmeAdi" column="ISLETME_ADI" type="string" />
+        <property name="orgKod" column="ORG_KOD" type="string" />
+        <property name="isletmeTipi" column="ISLETME_TIPI" type="string" />
+    </class> 
+    
+    <class name="xxxt.bilogin.db.entities.OrgCode" schema="BI_LOGIN" table="ORG_KOD_V_TBL">
+        <id column="ID" name="id" type="big_decimal">
+            <generator class="assigned"/>
+        </id>
+        <property name="orgCode" column="ORG_KOD" type="string" />
+    </class>
+    
+    <class name="xxxt.bilogin.db.entities.RolDuyuru" table="ROL_DUYURU" schema="BI_LOGIN">
+        <id name="id" type="long">
+            <column name="ID"/>            
+            <generator class="native"/>
+        </id>
+        <property name="rolId" type="big_decimal">
+            <column name="ROL" />
+        </property>
+        <property name="messageBody" type="string">
+            <column name="MESSAGE_BODY" />
+        </property>
+        <property name="effectiveStartDate" type="date">
+            <column name="EFFECTIVE_START_DATE" />
+        </property>
+        <property name="effectiveEndDate" type="date">
+            <column name="EFFECTIVE_END_DATE" />
+        </property>
+    </class>
+</hibernate-mapping>
